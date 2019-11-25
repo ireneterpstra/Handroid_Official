@@ -164,9 +164,10 @@ void loop(void) {
   angle2 = calculateResistance(FLEX_PIN2);
 
 
-  if (angle1 > 20 || angle2 > 20){ //Pitch
-    analogWrite(6, 153);
-    Serial.println("Angle 1: " + String(angle1) + " Angle 2: " + String(angle2) + "  ");
+  if (angle1 > 10 || angle2 > 10){ //Pitch
+    int tempAngle = map(angle1, 10, 150, 30, 153);
+    analogWrite(6, tempAngle);
+    Serial.println("Angle 1: " + String(angle1) + " Angle 2: " + String(angle2) + " Temp Angle " + String(tempAngle));
 //    Serial.print("Pitch: " + String(BZ) + "  ");
 //    Serial.print("Yaw: " + String(BX) + "  ");
 //    Serial.println("Roll: " + String(BY) + " : vibrator on");
